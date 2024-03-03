@@ -1,3 +1,4 @@
+![Kuberlogo](imgs/kuberlogo.png)
 # Configuració de Kubernetes
 
 ## Introducció
