@@ -1,4 +1,3 @@
-![Kuberlogo](imgs/kuberlogo.png)
 # Configuració de Kubernetes
 
 ## Introducció
@@ -84,7 +83,7 @@ spec:
 ```
 
 
-**Nota:** No hem sabut com fer el reinici en cas de problemes. Es fa mitjançan un liveprobe.
+**Nota:** No hem sabut com fer el reinici en cas de problemes. Es fa mitjançant un liveprobe.
 
 Aplicam el yaml amb la comanda:
 
