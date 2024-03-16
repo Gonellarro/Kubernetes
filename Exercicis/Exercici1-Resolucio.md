@@ -1,6 +1,5 @@
 
-![Kind](imgs/logo.png)
-# Instal·lació de les eines necessàries a Ubuntu 22.04
+# Exercici1 - Resolucio
 Kind és una eina per executar clústers locals de Kubernetes mitjançant "nodes" de contenidors Docker. Kind es va dissenyar principalment per provar el propi Kubernetes, però es pot utilitzar per al desenvolupament local o CI.
 
 Per instal·lar Kind a Ubuntu i provar que ens funciona Kubernetes, emprarem una màquina virtual d’Ubuntu en VirtualBox. Aquesta ha de tenir un mínim de 6GB, ara que li donarem 8 tal i com es recomana a la formació. 

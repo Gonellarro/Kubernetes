@@ -1,10 +1,9 @@
-# Configuració de Kubernetes
+# Exercici 2 - Resolt
 
 ## Introducció
 
 Revisam la instal·lació que tenim feta de l’exercici anterior. Miram primer quins nodes tenim:
 
-![kuber1](imgs/kuber1.png)
 
 Com podem veure, ens ha creat els 3 workers i el control plane. Anem a començar, sabent d’on partim, amb la pràctica 2.
 
