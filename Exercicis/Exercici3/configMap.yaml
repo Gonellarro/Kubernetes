@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: practica3-2cm
+  namespace: ns-practica3
+data:
+  missatge1: "Me gusta Kubernetes"
+  missatge2: |
+    Tararior tarararo
+    Lorem ipsum dolor sit amet
+    Ut enim ad minim veniam

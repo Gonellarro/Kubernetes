@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: practica3-2
+  namespace: ns-practica3
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command: ["/bin/sh", "-c", "echo $M1 && echo $M2"]
+    env:
+      - name: M1
+        valueFrom:
+          configMapKeyRef:
+            name: practica3-2cm
+            key: missatge1
+      - name: M2
+        valueFrom:
+          configMapKeyRef:
+            name: practica3-2cm
+            key: missatge2

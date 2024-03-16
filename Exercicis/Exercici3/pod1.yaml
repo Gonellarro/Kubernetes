@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: practica3-1
+  namespace: ns-practica3
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command: ["echo"]
+    args: ["Me gusta Kubernetes"]

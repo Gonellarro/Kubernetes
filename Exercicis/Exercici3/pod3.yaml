@@ -1,0 +1,16 @@
+piVersion: v1
+kind: Pod
+metadata:
+  name: practica3-3
+  namespace: ns-practica3
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command: ["/bin/sh", "-c", "echo $secretor"]
+    env:
+    - name: secretor
+      valueFrom:
+        secretKeyRef:
+          name: practica3-3secret
+          key: APIKEY
