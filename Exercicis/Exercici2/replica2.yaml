@@ -1,0 +1,45 @@
+piVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: practica2inst2
+  namespace: practica2inst2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      containers:
+      - name: nginx-server
+        image: nginx
+        ports:
+          - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: size
+                  operator: In
+                  values:
+                  - Large
+                  - Medium
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - webserver
+            topologyKey: "kubernetes.io/hostname"
