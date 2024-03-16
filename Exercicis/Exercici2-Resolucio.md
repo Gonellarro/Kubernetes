@@ -34,7 +34,7 @@ Revisam que tinguin les etiquetes correctes amb la comanda:
 kubectl get nodes --show-labels
 ```
 
-![Workers1](imgs/workers1.png)
+![Workers1](../imgs/workers1.png)
 
 ## Instalación 1 
 
@@ -53,7 +53,7 @@ Amb la comanda següent revisam els namespaces creats:
 kubectl get namespaces
 ```
 
-![namespaces1](imgs/namespaces1.png)
+![namespaces1](../imgs/namespaces1.png)
 
 Un cop tenim el namespace creat, crearem la definició del nostre pod al yaml:
 

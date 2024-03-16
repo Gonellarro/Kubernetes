@@ -96,11 +96,11 @@ kind create cluster --name exercici1 --config config.yaml
 ```
 Obtenim el següent resultat:
 
-![ResultatKind](imgs/kind1.png)
+![ResultatKind](../imgs/kind1.png)
 
 Si revisam quins contenidors tenim, podem observar que tenim els 3 workers i el control plane.
 
-![WorkersCPlane](imgs/kind2.png)
+![WorkersCPlane](../imgs/kind2.png)
 
 
 
