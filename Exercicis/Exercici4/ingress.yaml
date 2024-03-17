@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echoserver
+  namespace: ns-practica4
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: echoserver
+            port:
+              number: 80
+        path: /echo
+        pathType: Prefix
