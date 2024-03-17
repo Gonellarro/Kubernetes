@@ -17,17 +17,15 @@ Si ha anat tot bé, podem veure que no acaba bé el pod, però el log és correc
 
 ```bash:
 kubectl get pods -n=ns-practica3
-```
->NAME          READY   STATUS             RESTARTS     AGE   
+NAME          READY   STATUS             RESTARTS     AGE   
 practica3-1   0/1     CrashLoopBackOff   1 (6s ago)   12s  
-
+```
 Veurem que ens dóna un CrashLoopBackOff. No he aconseguit que acabi millor, però el resultat pareix que és el correcte:
 
 ```bash:
 kubectl logs practica3-1 --all-containers -n=ns-practica3
+Me gusta Kubernetes
 ```
-Ens surt clarament:   
->Me gusta Kubernetes
 
 2. Feim el segon exercici. Per això hem de crear el configMap amb el fitxer configMap.yaml i llavors llançar el pod2.yaml
 
@@ -39,9 +37,9 @@ Novament ens dóna error si feim un get pods, però correcte si miram el log:
 
 ```bash:
 kubectl logs practica3-2 --all-containers -n=ns-practica3
-```
-> Me gusta Kubernetes  
+Me gusta Kubernetes  
 Tararior tarararo Lorem ipsum dolor sit amet Ut enim ad minim veniam
+```
 
 3. En terecer exercici també hem de crear primer el secret, aplicant la definició de secret.yaml i llavors el pod3.yaml:
 
@@ -53,8 +51,8 @@ Ens torna a donar error el get pod, però bé el log:
 
 ```bash:
 kubectl logs practica3-3 --all-containers -n=ns-practica3
+SOCELMILLOR
 ```
->SOCELMILLOR
 
 4. El quart exercici hem de crear el PV general per tot el clúster i llavors reclamar els 50MB. Un cop fet, seguirem amb el pod4.yaml:
 
