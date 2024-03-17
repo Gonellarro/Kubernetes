@@ -217,6 +217,66 @@ Events:       <none>
 ```
 Veim que té la ruta correcta i està apuntant correctament al servei.
 
+Repassam els pods:
+
+```bash:
+kubectl get pods -n=ns-practica4 
+NAME                          READY   STATUS    RESTARTS   AGE
+echoserver-65c4b4448b-dxmdt   1/1     Running   0          110m
+echoserver-65c4b4448b-grbn2   1/1     Running   0          110m
+```
+
+```bash:
+kubectl describe pod echoserver-65c4b4448b-dxmdt -n=ns-practica4
+Name:             echoserver-65c4b4448b-dxmdt
+Namespace:        ns-practica4
+Priority:         0
+Service Account:  default
+Node:             practiques-worker3/172.18.0.2
+Start Time:       Sun, 17 Mar 2024 10:58:09 +0000
+Labels:           app=echoserver
+                  pod-template-hash=65c4b4448b
+Annotations:      <none>
+Status:           Running
+IP:               10.244.3.5
+IPs:
+  IP:           10.244.3.5
+Controlled By:  ReplicaSet/echoserver-65c4b4448b
+Containers:
+  echoserver:
+    Container ID:   containerd://9d6124ae3ea8e597fb97f8fe3bdca52bad24104b4c304c9c4c480d5ce422c293
+    Image:          ealen/echo-server:latest
+    Image ID:       docker.io/ealen/echo-server@sha256:ec8a6e95890df937a1eb5fafca033a32172d4f43c1fea1f302931d5f230a137f
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sun, 17 Mar 2024 10:58:16 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zsfrp (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-zsfrp:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+```
+
 
 
 
