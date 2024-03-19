@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  namespace: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: database
+        tier: backend
+    spec:
+      containers:
+      - name: dbserver
+        image: jlaredo/formacion-postgresql-amd64
+        ports:
+          - containerPort: 5432
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "200m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        livenessProbe: 
+          tcpSocket:
+            port: 5432
+          initialDelaySeconds: 2 #Default 0 
+          periodSeconds: 2 #Default 10 
+          timeoutSeconds: 1 #Default 1 
+          successThreshold: 1 #Default 1 
+          failureThreshold: 3 #Default 3
+        volumeMounts:
+        - name: datafiles
+          mountPath: /var/lib/postgresql/data
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - back
+      volumes:
+      - name: datafiles
+        persistentVolumeClaim: 
+          claimName: dbvolume-pvc
