@@ -1,6 +1,8 @@
 #/bin/bash
 
-#Cream el cluste de cubernetes amb la declaració de la pràctica 3
+#Esborram tots els clusters que tenim
+kind delete clusters --all
+#Cream el cluster de Kubernetes amb la declaració de la pràctica 3
 kind create cluster --name vich-servera --config cluster.yaml
 
 #Etiquetam els nodes amb la posicio front a 2 nodes i back a un node
@@ -29,7 +31,7 @@ kubectl apply -f serviceweb.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
 
 #Cream els ingress pels serveis de web i content
-kubectl apply -f ingress.yaml
+kubectl apply -f ingressweb.yaml
 
 #Cream el deployment de la bd
 kubectl apply -f deploymentbd.yaml
@@ -39,4 +41,5 @@ kubectl apply -f replicaweb.yaml
 
 #Cream la replica del servidor de continguts
 kubectl apply -f replicacontentserver.yaml
+
 

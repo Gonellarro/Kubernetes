@@ -4,8 +4,8 @@ metadata:
   name: content-svc
 spec:
   selector:
-    app.kubernetes.io/name: contentserver
+    app.kubernetes.io/name: contentserverApp
   ports:
     - protocol: TCP
-      port: 8081
+      port: 80
       targetPort: 80

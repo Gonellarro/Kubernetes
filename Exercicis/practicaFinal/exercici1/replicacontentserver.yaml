@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: contentserver
+  name: contentserver-rplst
   namespace: frontend
 spec:
   replicas: 2
@@ -14,6 +14,7 @@ spec:
       labels:
         app: contentserver
         tier: frontend
+        app.kubernetes.io/name: contentserverApp
     spec:
       containers:
       - name: contentserver

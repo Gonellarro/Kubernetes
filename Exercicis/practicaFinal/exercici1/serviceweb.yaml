@@ -4,7 +4,7 @@ metadata:
   name: webserver-svc
 spec:
   selector:
-    app.kubernetes.io/name: webserver
+    app.kubernetes.io/name: webserverApp
   ports:
     - protocol: TCP
       port: 8080
