@@ -27,12 +27,6 @@ kubectl apply -f servicecontent.yaml
 kubectl apply -f servicedb.yaml
 kubectl apply -f serviceweb.yaml
 
-#Cream l'ingress-controler
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
-
-#Cream els ingress pels serveis de web i content
-kubectl apply -f ingressweb.yaml
-
 #Cream el deployment de la bd
 kubectl apply -f deploymentbd.yaml
 
@@ -42,4 +36,13 @@ kubectl apply -f replicaweb.yaml
 #Cream la replica del servidor de continguts
 kubectl apply -f replicacontentserver.yaml
 
+#Cream l'ingress-controler
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
+sleep 2
+
+#Eliminam la validació del web hook configuration de l'ingres nginx
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+
+#Cream els ingress pels serveis de web i content
+kubectl apply -f ingressweb.yaml
 
