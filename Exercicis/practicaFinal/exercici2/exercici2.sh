@@ -1,7 +1,7 @@
 #Instal·lam el servei de Helm
 sudo bash instalacio.sh
 
-#Descarregam el chart Nginx chart de Bitnami
+#Descarregam el chart Nginx de Bitnami
 helm install exercici2 oci://registry-1.docker.io/bitnamicharts/nginx
 
 #Mostram la release i l'estat dels pods
