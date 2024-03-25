@@ -4,5 +4,5 @@ metadata:
   name: webserver-cm
   namespace: frontend
 data:
-  DB_USER: "formacion"
-  DB_HOSTNAME: "db-svc.backend"
+  DB_USER: formacion
+  DB_HOSTNAME: db-svc.backend

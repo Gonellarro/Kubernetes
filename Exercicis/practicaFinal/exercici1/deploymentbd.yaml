@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: database
   namespace: backend
+  labels:
+    app: database
 spec:
   replicas: 1
   selector:
@@ -14,7 +16,6 @@ spec:
       labels:
         app: database
         tier: backend
-        app.kubernetes.io/name: databaseApp
     spec:
       containers:
       - name: dbserver
@@ -28,7 +29,7 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "500m"
-        livenessProbe: 
+        livenessProbe:
           tcpSocket:
             port: 5432
           initialDelaySeconds: 2 #Default 0 
@@ -36,6 +37,11 @@ spec:
           timeoutSeconds: 1 #Default 1 
           successThreshold: 1 #Default 1 
           failureThreshold: 3 #Default 3
+        readinessProbe:
+          tcpSocket:
+            port: 5432
+          initialDelaySeconds: 15
+          periodSeconds: 15
         volumeMounts:
         - name: datafiles
           mountPath: /var/lib/postgresql/data
@@ -50,5 +56,5 @@ spec:
                   - back
       volumes:
       - name: datafiles
-        persistentVolumeClaim: 
+        persistentVolumeClaim:
           claimName: dbvolume-pvc

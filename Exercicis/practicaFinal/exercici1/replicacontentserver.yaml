@@ -3,6 +3,8 @@ kind: ReplicaSet
 metadata:
   name: contentserver-rplst
   namespace: frontend
+  labels:
+    app: contentserver
 spec:
   replicas: 2
   selector:
@@ -14,7 +16,6 @@ spec:
       labels:
         app: contentserver
         tier: frontend
-        app.kubernetes.io/name: contentserverApp
     spec:
       containers:
       - name: contentserver
@@ -29,6 +30,12 @@ spec:
             memory: "128Mi"
             cpu: "200m"
         livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        readinessProbe:
           httpGet:
             path: /
             port: 80

@@ -5,8 +5,7 @@ metadata:
   namespace: frontend
 spec:
   rules:
-  - host: kuber.local
-    http:
+  - http:
       paths:
       - backend:
           service:

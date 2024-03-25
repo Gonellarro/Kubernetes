@@ -4,7 +4,7 @@ metadata:
   name: practica-final-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 2Gi
   accessModes:
   - ReadWriteOnce
   - ReadOnlyMany
